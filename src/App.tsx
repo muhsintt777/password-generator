@@ -45,6 +45,24 @@ const App = (): JSX.Element => {
     setOptions({upperCase: false, lowerCase: false, specialChar: false});
   }
 
+  function onCreatePress() {
+    let longString = '';
+    if (options.upperCase) longString += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    if (options.lowerCase) longString += 'abcdefghijklmnopqrstuvwxyz';
+    if (options.specialChar) longString += '!@#$%&*()_-+=';
+    const password = generatePassword(longString);
+    setPassword(password);
+  }
+
+  function generatePassword(longString: string): string {
+    let password = '';
+    for (let i = 0; i < Number(pwdLengthInp); i++) {
+      const randomIndex = Math.floor(Math.random() * longString.length);
+      password += longString[randomIndex];
+    }
+    return password;
+  }
+
   return (
     <SafeAreaView>
       <ScrollView style={styles.container}>
@@ -64,6 +82,7 @@ const App = (): JSX.Element => {
         <View style={styles.checkInpContainer}>
           <Text style={styles.label}>Add Uppercase</Text>
           <BouncyCheckbox
+            isChecked={options.upperCase}
             fillColor="green"
             unfillColor="white"
             onPress={(isChecked: boolean) =>
@@ -74,6 +93,7 @@ const App = (): JSX.Element => {
         <View style={styles.checkInpContainer}>
           <Text style={styles.label}>Add Lowercase</Text>
           <BouncyCheckbox
+            isChecked={options.lowerCase}
             fillColor="green"
             unfillColor="white"
             onPress={(isChecked: boolean) =>
@@ -84,6 +104,7 @@ const App = (): JSX.Element => {
         <View style={styles.checkInpContainer}>
           <Text style={styles.label}>Add Special Chars</Text>
           <BouncyCheckbox
+            isChecked={options.specialChar}
             fillColor="green"
             unfillColor="white"
             onPress={(isChecked: boolean) =>
@@ -93,7 +114,9 @@ const App = (): JSX.Element => {
         </View>
 
         <View style={styles.actionButtonContainer}>
-          <TouchableOpacity style={[styles.createBtn, styles.actionButton]}>
+          <TouchableOpacity
+            style={[styles.createBtn, styles.actionButton]}
+            onPress={onCreatePress}>
             <Text style={styles.actionButtonTxt}>Create</Text>
           </TouchableOpacity>
           <TouchableOpacity

@@ -44,11 +44,18 @@ export const styles = StyleSheet.create({
   },
 
   passwordContainer: {
+    flexDirection: 'row',
     justifyContent: 'center',
+    marginTop: 20,
+    borderWidth: 1,
+    borderColor: 'green',
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
   },
   password: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 22,
     fontWeight: '500',
   },
 
