@@ -12,14 +12,23 @@ import BouncyCheckbox from 'react-native-bouncy-checkbox';
 
 const App = (): JSX.Element => {
   const [pwdLengthInp, setPwdLength] = useState<string>('');
-
-  // function handleLengthInp(e: TextInputChangeEventData) {
-  //   console.log(e);
-  // }
+  const [options, setOptions] = useState({
+    upperCase: false,
+    lowerCase: false,
+    specialChar: false,
+  });
 
   function handleLengthInp(newText: string) {
     console.log(newText);
-    setPwdLength(newText); // Update the state with the new text
+    setPwdLength(newText);
+  }
+
+  function handleOptionChange(
+    option: 'upperCase' | 'lowerCase' | 'specialChar',
+    isChecked: boolean,
+  ) {
+    console.log(isChecked);
+    setOptions(prev => ({...prev, [option]: isChecked}));
   }
 
   return (
@@ -40,15 +49,33 @@ const App = (): JSX.Element => {
         </View>
         <View style={styles.checkInpContainer}>
           <Text style={styles.label}>Add Uppercase</Text>
-          <BouncyCheckbox fillColor="green" unfillColor="white" />
+          <BouncyCheckbox
+            fillColor="green"
+            unfillColor="white"
+            onPress={(isChecked: boolean) =>
+              handleOptionChange('upperCase', isChecked)
+            }
+          />
         </View>
         <View style={styles.checkInpContainer}>
           <Text style={styles.label}>Add Lowercase</Text>
-          <BouncyCheckbox fillColor="green" unfillColor="white" />
+          <BouncyCheckbox
+            fillColor="green"
+            unfillColor="white"
+            onPress={(isChecked: boolean) =>
+              handleOptionChange('lowerCase', isChecked)
+            }
+          />
         </View>
         <View style={styles.checkInpContainer}>
           <Text style={styles.label}>Add Special Chars</Text>
-          <BouncyCheckbox fillColor="green" unfillColor="white" />
+          <BouncyCheckbox
+            fillColor="green"
+            unfillColor="white"
+            onPress={(isChecked: boolean) =>
+              handleOptionChange('specialChar', isChecked)
+            }
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
