@@ -7,10 +7,18 @@
 
 import {styles} from './AppStyle';
 import React, {useState} from 'react';
-import {SafeAreaView, ScrollView, Text, TextInput, View} from 'react-native';
+import {
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 
 const App = (): JSX.Element => {
+  const [password, setPassword] = useState<string | null>(null);
   const [pwdLengthInp, setPwdLength] = useState<string>('');
   const [options, setOptions] = useState({
     upperCase: false,
@@ -76,6 +84,21 @@ const App = (): JSX.Element => {
               handleOptionChange('specialChar', isChecked)
             }
           />
+        </View>
+
+        <View style={styles.actionButtonContainer}>
+          <TouchableOpacity style={[styles.createBtn, styles.actionButton]}>
+            <Text>Create</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.resetBtn, styles.actionButton]}>
+            <Text>Reset</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.passwordContainer}>
+          <Text style={styles.password} selectable>
+            {password}
+          </Text>
         </View>
       </ScrollView>
     </SafeAreaView>

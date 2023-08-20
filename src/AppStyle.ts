@@ -42,4 +42,38 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 20,
   },
+
+  passwordContainer: {
+    justifyContent: 'center',
+  },
+  password: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '500',
+  },
+
+  actionButtonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+
+    marginTop: 20,
+  },
+
+  actionButton: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 10,
+  },
+
+  actionButtonTxt: {
+    color: 'white',
+  },
+
+  createBtn: {
+    backgroundColor: 'blue',
+  },
+
+  resetBtn: {
+    backgroundColor: 'red',
+  },
 });
