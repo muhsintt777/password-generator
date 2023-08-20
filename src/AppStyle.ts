@@ -61,12 +61,13 @@ export const styles = StyleSheet.create({
 
   actionButton: {
     paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingVertical: 8,
     borderRadius: 10,
   },
 
   actionButtonTxt: {
     color: 'white',
+    fontSize: 18,
   },
 
   createBtn: {

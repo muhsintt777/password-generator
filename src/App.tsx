@@ -39,6 +39,12 @@ const App = (): JSX.Element => {
     setOptions(prev => ({...prev, [option]: isChecked}));
   }
 
+  function onResetPress() {
+    setPassword(null);
+    setPwdLength('');
+    setOptions({upperCase: false, lowerCase: false, specialChar: false});
+  }
+
   return (
     <SafeAreaView>
       <ScrollView style={styles.container}>
@@ -88,10 +94,12 @@ const App = (): JSX.Element => {
 
         <View style={styles.actionButtonContainer}>
           <TouchableOpacity style={[styles.createBtn, styles.actionButton]}>
-            <Text>Create</Text>
+            <Text style={styles.actionButtonTxt}>Create</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.resetBtn, styles.actionButton]}>
-            <Text>Reset</Text>
+          <TouchableOpacity
+            style={[styles.resetBtn, styles.actionButton]}
+            onPress={onResetPress}>
+            <Text style={styles.actionButtonTxt}>Reset</Text>
           </TouchableOpacity>
         </View>
 
