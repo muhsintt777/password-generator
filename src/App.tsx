@@ -7,25 +7,8 @@
 
 import {styles} from './AppStyle';
 import React, {useState} from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  Text,
-  TextInput,
-  TextInputChangeEventData,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {SafeAreaView, ScrollView, Text, TextInput, View} from 'react-native';
+import BouncyCheckbox from 'react-native-bouncy-checkbox';
 
 const App = (): JSX.Element => {
   const [pwdLengthInp, setPwdLength] = useState<string>('');
@@ -46,7 +29,26 @@ const App = (): JSX.Element => {
           <Text style={styles.title}>Password Generator</Text>
         </View>
         <View style={styles.pwdLength}>
-          <TextInput value={pwdLengthInp} onChangeText={handleLengthInp} />
+          <Text style={styles.label}>Length</Text>
+          <TextInput
+            style={styles.lengthInp}
+            value={pwdLengthInp}
+            onChangeText={handleLengthInp}
+            placeholder="eg: 8"
+            keyboardType="numeric"
+          />
+        </View>
+        <View style={styles.checkInpContainer}>
+          <Text style={styles.label}>Add Uppercase</Text>
+          <BouncyCheckbox fillColor="green" unfillColor="white" />
+        </View>
+        <View style={styles.checkInpContainer}>
+          <Text style={styles.label}>Add Lowercase</Text>
+          <BouncyCheckbox fillColor="green" unfillColor="white" />
+        </View>
+        <View style={styles.checkInpContainer}>
+          <Text style={styles.label}>Add Special Chars</Text>
+          <BouncyCheckbox fillColor="green" unfillColor="white" />
         </View>
       </ScrollView>
     </SafeAreaView>

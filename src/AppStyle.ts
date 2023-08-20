@@ -3,10 +3,11 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     height: '100%',
-    backgroundColor: 'white',
+    backgroundColor: 'grey',
+    paddingHorizontal: 15,
   },
   title: {
-    fontSize: 16,
+    fontSize: 24,
     fontWeight: '800',
     color: 'blue',
   },
@@ -17,7 +18,28 @@ export const styles = StyleSheet.create({
   },
 
   pwdLength: {
-    flex: 0.8,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     backgroundColor: 'grey',
+  },
+
+  label: {
+    color: 'white',
+    fontSize: 18,
+  },
+
+  lengthInp: {
+    flex: 0.2,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    backgroundColor: 'white',
+  },
+
+  checkInpContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 20,
   },
 });
