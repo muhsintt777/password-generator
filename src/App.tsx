@@ -45,7 +45,15 @@ const App = (): JSX.Element => {
     setOptions({upperCase: false, lowerCase: false, specialChar: false});
   }
 
+  function validateInput(): boolean {
+    if (!pwdLengthInp) return false;
+    if (!options.lowerCase && !options.specialChar && !options.upperCase)
+      return false;
+    return true;
+  }
+
   function onCreatePress() {
+    if (!validateInput()) return;
     let longString = '';
     if (options.upperCase) longString += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     if (options.lowerCase) longString += 'abcdefghijklmnopqrstuvwxyz';
