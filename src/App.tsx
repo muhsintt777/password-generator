@@ -27,7 +27,6 @@ const App = (): JSX.Element => {
   });
 
   function handleLengthInp(newText: string) {
-    console.log(newText);
     setPwdLength(newText);
   }
 
