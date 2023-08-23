@@ -10,6 +10,7 @@ import React, {useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
+  StatusBar,
   Text,
   TextInput,
   TouchableOpacity,
@@ -72,6 +73,7 @@ const App = (): JSX.Element => {
 
   return (
     <SafeAreaView>
+      <StatusBar />
       <ScrollView style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.title}>Password Generator</Text>
